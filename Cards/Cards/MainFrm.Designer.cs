@@ -34,6 +34,7 @@
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
             this.mailGroup = new DevExpress.XtraNavBar.NavBarGroup();
             this.StudentItem = new DevExpress.XtraNavBar.NavBarItem();
+            this.MissingPhoto = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarImageListLarge = new System.Windows.Forms.ImageList(this.components);
             this.navbarImageList = new System.Windows.Forms.ImageList(this.components);
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -55,10 +56,15 @@
             this.btnPrintEditor = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrint = new DevExpress.XtraEditors.SimpleButton();
             this.btnGetData = new DevExpress.XtraEditors.SimpleButton();
+            this.lueSNAME = new DevExpress.XtraEditors.GridLookUpEdit();
+            this.dATASNAMEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colSNAME1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.LUEFasl = new DevExpress.XtraEditors.GridLookUpEdit();
             this.fASLBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colFASL2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.LUESaf = new DevExpress.XtraEditors.GridLookUpEdit();
             this.barManager = new DevExpress.XtraBars.BarManager(this.components);
             this.bar2 = new DevExpress.XtraBars.Bar();
@@ -80,6 +86,7 @@
             this.safTableAdapter = new Cards.DataSources.dsCardsTableAdapters.SafTableAdapter();
             this.fASLTableAdapter = new Cards.DataSources.dsCardsTableAdapters.FASLTableAdapter();
             this.colFASL1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dATA_SNAMETableAdapter = new Cards.DataSources.dsCardsTableAdapters.DATA_SNAMETableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl)).BeginInit();
             this.splitContainerControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.navBarControl)).BeginInit();
@@ -91,6 +98,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GCQueryOptions)).BeginInit();
             this.GCQueryOptions.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueSNAME.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dATASNAMEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LUEFasl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fASLBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -123,7 +133,8 @@
             this.navBarControl.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.mailGroup});
             this.navBarControl.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
-            this.StudentItem});
+            this.StudentItem,
+            this.MissingPhoto});
             this.navBarControl.LargeImages = this.navbarImageListLarge;
             this.navBarControl.Location = new System.Drawing.Point(0, 0);
             this.navBarControl.Name = "navBarControl";
@@ -140,7 +151,8 @@
             this.mailGroup.Caption = "الطلاب";
             this.mailGroup.Expanded = true;
             this.mailGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.StudentItem)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.StudentItem),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.MissingPhoto)});
             this.mailGroup.LargeImageIndex = 0;
             this.mailGroup.Name = "mailGroup";
             // 
@@ -150,6 +162,13 @@
             this.StudentItem.Name = "StudentItem";
             this.StudentItem.SmallImageIndex = 0;
             this.StudentItem.ItemChanged += new System.EventHandler(this.StudentItem_ItemChanged);
+            // 
+            // MissingPhoto
+            // 
+            this.MissingPhoto.Caption = "الصور المفقودة";
+            this.MissingPhoto.Name = "MissingPhoto";
+            this.MissingPhoto.SmallImage = global::Cards.Properties.Resources.cancel_32x32;
+            this.MissingPhoto.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.MissingPhoto_LinkClicked);
             // 
             // navbarImageListLarge
             // 
@@ -368,7 +387,9 @@
             this.GCQueryOptions.Controls.Add(this.btnPrintEditor);
             this.GCQueryOptions.Controls.Add(this.btnPrint);
             this.GCQueryOptions.Controls.Add(this.btnGetData);
+            this.GCQueryOptions.Controls.Add(this.lueSNAME);
             this.GCQueryOptions.Controls.Add(this.LUEFasl);
+            this.GCQueryOptions.Controls.Add(this.labelControl3);
             this.GCQueryOptions.Controls.Add(this.LUESaf);
             this.GCQueryOptions.Controls.Add(this.labelControl2);
             this.GCQueryOptions.Controls.Add(this.labelControl1);
@@ -385,7 +406,7 @@
             this.btnPrintEditor.Location = new System.Drawing.Point(593, 24);
             this.btnPrintEditor.Name = "btnPrintEditor";
             this.btnPrintEditor.Size = new System.Drawing.Size(163, 23);
-            this.btnPrintEditor.TabIndex = 2;
+            this.btnPrintEditor.TabIndex = 3;
             this.btnPrintEditor.Text = "تعديل ورقة الطباعه";
             this.btnPrintEditor.Visible = false;
             this.btnPrintEditor.Click += new System.EventHandler(this.btnPrintEditor_Click);
@@ -396,7 +417,7 @@
             this.btnPrint.Location = new System.Drawing.Point(593, 72);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(163, 23);
-            this.btnPrint.TabIndex = 2;
+            this.btnPrint.TabIndex = 5;
             this.btnPrint.Text = "طباعه";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
@@ -405,14 +426,52 @@
             this.btnGetData.Location = new System.Drawing.Point(5, 72);
             this.btnGetData.Name = "btnGetData";
             this.btnGetData.Size = new System.Drawing.Size(163, 23);
-            this.btnGetData.TabIndex = 3;
+            this.btnGetData.TabIndex = 4;
             this.btnGetData.Text = "عرض";
             this.btnGetData.Click += new System.EventHandler(this.btnGetData_Click);
+            // 
+            // lueSNAME
+            // 
+            this.lueSNAME.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lueSNAME.Location = new System.Drawing.Point(18, 47);
+            this.lueSNAME.Name = "lueSNAME";
+            this.lueSNAME.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lueSNAME.Properties.DataSource = this.dATASNAMEBindingSource;
+            this.lueSNAME.Properties.DisplayMember = "SNAME";
+            this.lueSNAME.Properties.NullText = "";
+            this.lueSNAME.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+            this.lueSNAME.Properties.ValueMember = "ID";
+            this.lueSNAME.Properties.View = this.gridView2;
+            this.lueSNAME.Size = new System.Drawing.Size(150, 20);
+            this.lueSNAME.TabIndex = 2;
+            // 
+            // dATASNAMEBindingSource
+            // 
+            this.dATASNAMEBindingSource.DataMember = "DATA_SNAME";
+            this.dATASNAMEBindingSource.DataSource = this.dsCards;
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colSNAME1});
+            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // colSNAME1
+            // 
+            this.colSNAME1.Caption = "الاسم";
+            this.colSNAME1.FieldName = "SNAME";
+            this.colSNAME1.Name = "colSNAME1";
+            this.colSNAME1.Visible = true;
+            this.colSNAME1.VisibleIndex = 0;
             // 
             // LUEFasl
             // 
             this.LUEFasl.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LUEFasl.Location = new System.Drawing.Point(196, 47);
+            this.LUEFasl.Location = new System.Drawing.Point(209, 47);
             this.LUEFasl.Name = "LUEFasl";
             this.LUEFasl.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -451,10 +510,19 @@
             this.colFASL2.Visible = true;
             this.colFASL2.VisibleIndex = 0;
             // 
+            // labelControl3
+            // 
+            this.labelControl3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.labelControl3.Location = new System.Drawing.Point(174, 50);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(29, 13);
+            this.labelControl3.TabIndex = 0;
+            this.labelControl3.Text = "الاسم";
+            // 
             // LUESaf
             // 
             this.LUESaf.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.LUESaf.Location = new System.Drawing.Point(383, 47);
+            this.LUESaf.Location = new System.Drawing.Point(396, 47);
             this.LUESaf.MenuManager = this.barManager;
             this.LUESaf.Name = "LUESaf";
             this.LUESaf.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -592,7 +660,7 @@
             // labelControl2
             // 
             this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl2.Location = new System.Drawing.Point(352, 50);
+            this.labelControl2.Location = new System.Drawing.Point(365, 50);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(29, 13);
             this.labelControl2.TabIndex = 0;
@@ -601,7 +669,7 @@
             // labelControl1
             // 
             this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelControl1.Location = new System.Drawing.Point(539, 50);
+            this.labelControl1.Location = new System.Drawing.Point(552, 50);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(25, 13);
             this.labelControl1.TabIndex = 0;
@@ -631,6 +699,10 @@
             this.colFASL1.Visible = true;
             this.colFASL1.VisibleIndex = 0;
             // 
+            // dATA_SNAMETableAdapter
+            // 
+            this.dATA_SNAMETableAdapter.ClearBeforeFill = true;
+            // 
             // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -657,6 +729,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.GCQueryOptions)).EndInit();
             this.GCQueryOptions.ResumeLayout(false);
             this.GCQueryOptions.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lueSNAME.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dATASNAMEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LUEFasl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fASLBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -720,6 +795,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn colGov;
         private DevExpress.XtraGrid.Columns.GridColumn colFASL2;
         private DevExpress.XtraEditors.SimpleButton btnPrintEditor;
+        private DevExpress.XtraEditors.GridLookUpEdit lueSNAME;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private System.Windows.Forms.BindingSource dATASNAMEBindingSource;
+        private DataSources.dsCardsTableAdapters.DATA_SNAMETableAdapter dATA_SNAMETableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colSNAME1;
+        private DevExpress.XtraNavBar.NavBarItem MissingPhoto;
 
     }
 }

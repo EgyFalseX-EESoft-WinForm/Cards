@@ -308,9 +308,6 @@
             this.Detail,
             this.topMarginBand1,
             this.bottomMarginBand1});
-            this.DataAdapter = this.dATATableAdapter;
-            this.DataMember = "DATA";
-            this.DataSource = this.dsCards1;
             this.DrawGrid = false;
             this.Landscape = true;
             this.Margins = new System.Drawing.Printing.Margins(12, 0, 12, 0);
@@ -318,7 +315,7 @@
             this.PageWidth = 328;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.ReportPrintOptions.DetailCountOnEmptyDataSource = 10;
-            this.Version = "11.2";
+            this.Version = "13.2";
             ((System.ComponentModel.ISupportInitialize)(this.dsCards1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

@@ -30,6 +30,7 @@
         {
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrPanel1 = new DevExpress.XtraReports.UI.XRPanel();
+            this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
@@ -45,7 +46,6 @@
             this.bottomMarginBand1 = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.dsCards1 = new Cards.DataSources.dsCards();
             this.dATATableAdapter = new Cards.DataSources.dsCardsTableAdapters.DATATableAdapter();
-            this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dsCards1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -81,6 +81,20 @@
             this.xrPanel1.Name = "xrPanel1";
             this.xrPanel1.SizeF = new System.Drawing.SizeF(303F, 190F);
             this.xrPanel1.StylePriority.UseBorders = false;
+            // 
+            // xrLabel8
+            // 
+            this.xrLabel8.Borders = DevExpress.XtraPrinting.BorderSide.None;
+            this.xrLabel8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(10.00004F, 10.00001F);
+            this.xrLabel8.Name = "xrLabel8";
+            this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(283F, 17.6034F);
+            this.xrLabel8.StylePriority.UseBorders = false;
+            this.xrLabel8.StylePriority.UseFont = false;
+            this.xrLabel8.StylePriority.UseTextAlignment = false;
+            this.xrLabel8.Text = "موقع المدرسة الالكتروني";
+            this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrLabel7
             // 
@@ -259,28 +273,12 @@
             // 
             this.dATATableAdapter.ClearBeforeFill = true;
             // 
-            // xrLabel8
-            // 
-            this.xrLabel8.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrLabel8.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(10.00004F, 10.00001F);
-            this.xrLabel8.Name = "xrLabel8";
-            this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(283F, 17.6034F);
-            this.xrLabel8.StylePriority.UseBorders = false;
-            this.xrLabel8.StylePriority.UseFont = false;
-            this.xrLabel8.StylePriority.UseTextAlignment = false;
-            this.xrLabel8.Text = "موقع المدرسة الالكتروني";
-            this.xrLabel8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
             // XRepCardBack
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail,
             this.topMarginBand1,
             this.bottomMarginBand1});
-            this.DataAdapter = this.dATATableAdapter;
-            this.DataMember = "DATA";
             this.DataSource = this.dsCards1;
             this.DrawGrid = false;
             this.Landscape = true;
@@ -289,7 +287,7 @@
             this.PageWidth = 328;
             this.PaperKind = System.Drawing.Printing.PaperKind.Custom;
             this.ReportPrintOptions.DetailCountOnEmptyDataSource = 10;
-            this.Version = "11.2";
+            this.Version = "13.2";
             ((System.ComponentModel.ISupportInitialize)(this.dsCards1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 

@@ -33,6 +33,7 @@
             this.splitContainerControl = new DevExpress.XtraEditors.SplitContainerControl();
             this.navBarControl = new DevExpress.XtraNavBar.NavBarControl();
             this.mailGroup = new DevExpress.XtraNavBar.NavBarGroup();
+            this.MissingPhoto = new DevExpress.XtraNavBar.NavBarItem();
             this.StudentItem = new DevExpress.XtraNavBar.NavBarItem();
             this.navbarImageListLarge = new System.Windows.Forms.ImageList(this.components);
             this.navbarImageList = new System.Windows.Forms.ImageList(this.components);
@@ -105,7 +106,8 @@
             this.navBarControl.Groups.AddRange(new DevExpress.XtraNavBar.NavBarGroup[] {
             this.mailGroup});
             this.navBarControl.Items.AddRange(new DevExpress.XtraNavBar.NavBarItem[] {
-            this.StudentItem});
+            this.StudentItem,
+            this.MissingPhoto});
             this.navBarControl.LargeImages = this.navbarImageListLarge;
             this.navBarControl.Location = new System.Drawing.Point(0, 0);
             this.navBarControl.Name = "navBarControl";
@@ -122,9 +124,17 @@
             this.mailGroup.Caption = "الاعضاء";
             this.mailGroup.Expanded = true;
             this.mailGroup.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.StudentItem)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.StudentItem),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.MissingPhoto)});
             this.mailGroup.LargeImageIndex = 0;
             this.mailGroup.Name = "mailGroup";
+            // 
+            // MissingPhoto
+            // 
+            this.MissingPhoto.Caption = "الصور المفقودة";
+            this.MissingPhoto.Name = "MissingPhoto";
+            this.MissingPhoto.SmallImage = ((System.Drawing.Image)(resources.GetObject("MissingPhoto.SmallImage")));
+            this.MissingPhoto.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.MissingPhoto_LinkClicked);
             // 
             // StudentItem
             // 
@@ -233,6 +243,7 @@
             // repositoryItemCheckEdit1
             // 
             this.repositoryItemCheckEdit1.AutoHeight = false;
+            this.repositoryItemCheckEdit1.Caption = "Check";
             this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             // 
             // colID
@@ -561,6 +572,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colchk;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
         private DevExpress.XtraEditors.SimpleButton btnPrint2;
+        private DevExpress.XtraNavBar.NavBarItem MissingPhoto;
 
     }
 }

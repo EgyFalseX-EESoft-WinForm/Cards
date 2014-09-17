@@ -36,6 +36,15 @@ namespace CardSets
         {
             GCQueryOptions.Visible = true;
         }
+        private void MissingPhoto_ItemChanged(object sender, EventArgs e)
+        {
+            
+        }
+        private void MissingPhoto_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            MissingPhotoFrm frm = new MissingPhotoFrm();
+            frm.Show();
+        }
         private void btnPrint_Click(object sender, EventArgs e)
         {
             DataTable dt = dsCards.memberdata.Copy();
@@ -45,13 +54,13 @@ namespace CardSets
             //        dt.Rows.RemoveAt(i);
             //}
             XRepCard front = new XRepCard(dt);
-            front.ShowPreview();
+            Misc.Misc.ShowPrintPreview(front);
         }
         private void btnPrint2_Click(object sender, EventArgs e)
         {
             DataTable dt = dsCards.memberdata.Copy();
             XRepCard2 front = new XRepCard2(dt);
-            front.ShowPreview();
+            Misc.Misc.ShowPrintPreview(front);
         }
         private void btnPrintEditor_Click(object sender, EventArgs e)
         {
@@ -63,8 +72,14 @@ namespace CardSets
             }
 
             XRepCard front = new XRepCard(dt);
-            front.ShowDesigner();
+            Misc.Misc.ShowPrintPreview(front);
         }
+
+        
+
+        
+
+        
 
         
 
